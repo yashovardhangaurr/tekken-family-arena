@@ -18,7 +18,7 @@ const nowLocal = () => {
   const p = n => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`;
 };
-const scoreWins = (games) => games.reduce((a, g) => a + (g.winner ? 1 : 0), 0);
+const scoreWins = (games) => games.reduce((a, g) => a + (g.winner_id || g.winner ? 1 : 0), 0);
 const safeName = p => p?.name || 'Unknown';
 
 function calcElo(rA, rB, scoreA, k = 32) {
